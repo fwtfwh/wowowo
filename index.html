@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#b9e6c7" />
+  <meta name="description" content="羊了个羊：明亮卡通风的三消小游戏。大量卡牌层层叠叠堆在中间，点击最上层的牌，凑齐三张相同图案就能消除，别让卡槽塞满啦。" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23edf3d9'/%3E%3Cg fill='%23fffdf4'%3E%3Ccircle cx='20' cy='31' r='10'/%3E%3Ccircle cx='45' cy='31' r='10'/%3E%3Ccircle cx='32' cy='18' r='11'/%3E%3Ccircle cx='32' cy='44' r='14'/%3E%3C/g%3E%3Cellipse cx='32' cy='34' rx='13' ry='13' fill='%23f5d4b2'/%3E%3Ccircle cx='27' cy='33' r='2' fill='%23334a36'/%3E%3Ccircle cx='37' cy='33' r='2' fill='%23334a36'/%3E%3Cpath d='M29 39c1.8 1.8 4.2 1.8 6 0' fill='none' stroke='%2376533c' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <title>羊了个羊 · 今日份的牧场</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body data-theme="meadow">
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="sheep-mascot" viewBox="0 0 140 130">
+      <ellipse cx="70" cy="118" rx="42" ry="7" fill="#5e7b4d" opacity=".16"/>
+      <g class="sheep-body" fill="#fffdf4">
+        <circle cx="38" cy="74" r="21"/>
+        <circle cx="101" cy="72" r="21"/>
+        <circle cx="55" cy="47" r="18"/>
+        <circle cx="84" cy="45" r="19"/>
+        <circle cx="70" cy="82" r="29"/>
+        <circle cx="33" cy="96" r="16"/>
+        <circle cx="107" cy="96" r="16"/>
+        <circle cx="52" cy="105" r="18"/>
+        <circle cx="88" cy="105" r="18"/>
+        <circle cx="70" cy="103" r="19"/>
+      </g>
+      <g fill="none" stroke="#e7dfcd" stroke-width="1.6" stroke-linecap="round" opacity=".9">
+        <path d="M27 74c4-3 7-2 9 1"/>
+        <path d="M103 82c3-3 6-2 8 1"/>
+        <path d="M42 100c3-2 6-1 7 2"/>
+        <path d="M96 106c2-2 4-2 6 0"/>
+        <path d="M61 38c2-2 5-2 7 0"/>
+      </g>
+      <g class="sheep-ears">
+        <ellipse cx="41" cy="73" rx="12" ry="6.5" fill="#efb99a" transform="rotate(-26 41 73)"/>
+        <ellipse cx="99" cy="73" rx="12" ry="6.5" fill="#efb99a" transform="rotate(26 99 73)"/>
+        <ellipse cx="42" cy="74" rx="7" ry="3.2" fill="#e7a187" opacity=".55" transform="rotate(-26 42 74)"/>
+        <ellipse cx="98" cy="74" rx="7" ry="3.2" fill="#e7a187" opacity=".55" transform="rotate(26 98 74)"/>
+      </g>
+      <ellipse cx="70" cy="78" rx="25" ry="26" fill="#f5d4b2"/>
+      <path d="M46 65c3-13 12-20 24-20s22 7 25 20c-8-2-15-4-24-4s-17 2-25 4z" fill="#fffdf4"/>
+      <g fill="#fffdf4">
+        <circle cx="55" cy="52" r="8"/>
+        <circle cx="69" cy="48" r="9"/>
+        <circle cx="83" cy="52" r="8"/>
+      </g>
+      <g fill="#334a36">
+        <circle cx="61" cy="76" r="3.5"/>
+        <circle cx="79" cy="76" r="3.5"/>
+      </g>
+      <g fill="#fffdf4">
+        <circle cx="60.1" cy="74.9" r="1.1"/>
+        <circle cx="78.1" cy="74.9" r="1.1"/>
+      </g>
+      <ellipse cx="51" cy="85" rx="6" ry="3.5" fill="#eaa89e" opacity=".62"/>
+      <ellipse cx="89" cy="85" rx="6" ry="3.5" fill="#eaa89e" opacity=".62"/>
+      <path d="M66.5 84.5c2.1 1.5 4.9 1.5 7 0" fill="none" stroke="#76533c" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M70 81.5v2.2" fill="none" stroke="#c79576" stroke-width="1.5" stroke-linecap="round"/>
+      <g fill="none" stroke="#58834a" stroke-width="2.2" stroke-linecap="round">
+        <path d="M112 29c4.5 2.5 6.5 6 5.8 10.4"/>
+        <path d="M112 31c-4.5-.7-7.3 1-7.5 4.5 4.3.9 7-.7 7.5-4.5z" fill="#84ad64" stroke="none"/>
+        <path d="M117.2 37.8c.8-4 3.5-5.7 7-4.8-.4 4-3.1 5.9-7 4.8z" fill="#9cbd78" stroke="none"/>
+      </g>
+      <path d="M50 110c0-2 2-3 4-3h5v9c0 2-1.5 3-3.5 3S52 118 52 116v-6z" fill="#f8efd9"/>
+      <path d="M81 107h5c2 0 4 1 4 3v6c0 2-1.5 3-3.5 3s-3.5-1-3.5-3v-9z" fill="#f8efd9"/>
+      <g fill="#8c6c4c">
+        <rect x="51" y="117" width="8" height="3.5" rx="1.7"/>
+        <rect x="81" y="117" width="8" height="3.5" rx="1.7"/>
+      </g>
+    </symbol>
+    <symbol id="icon-undo" viewBox="0 0 24 24">
+      <path d="M8.2 7.6H4.1V3.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M4.5 7.5a8.3 8.3 0 1 1-.1 8.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-move" viewBox="0 0 24 24">
+      <rect x="3.2" y="5.2" width="12" height="13.6" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M7 9.2h4.5M7 12.4h3.2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+      <path d="M16.2 12h4.1m-2.5-2.5L20.3 12l-2.5 2.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-shuffle" viewBox="0 0 24 24">
+      <path d="M3.5 7.2h3.1c3.8 0 4.4 9.6 8.2 9.6h4.4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+      <path d="M3.5 16.8h3.1c1.4 0 2.2-1.4 3-3.1.9-2.1 1.8-4.1 3.2-5.3 1-.9 2.1-1.2 3.4-1.2h3.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/>
+      <path d="M17.5 4.7l3.4 2.5-3.4 2.4M17.5 14.3l3.4 2.5-3.4 2.4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-sound-on" viewBox="0 0 24 24">
+      <path d="M4 9.4h3.2L12 5.6v12.8l-4.8-3.8H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M15.4 9.1a4.2 4.2 0 0 1 0 5.8M18.2 6.4a8 8 0 0 1 0 11.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-sound-off" viewBox="0 0 24 24">
+      <path d="M4 9.4h3.2L12 5.6v12.8l-4.8-3.8H4z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+      <path d="M16 9.5l4 5M20 9.5l-4 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="icon-pause" viewBox="0 0 24 24">
+      <rect x="6.5" y="5" width="3.8" height="14" rx="1.7" fill="currentColor"/>
+      <rect x="13.7" y="5" width="3.8" height="14" rx="1.7" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24">
+      <path d="M5 12h13M13.5 6.8L19 12l-5.5 5.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </symbol>
+    <symbol id="icon-lock" viewBox="0 0 24 24">
+      <rect x="5.2" y="10.2" width="13.6" height="10" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M8.2 10.1V7.8a3.8 3.8 0 0 1 7.6 0v2.3" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+      <circle cx="12" cy="15.1" r="1.4" fill="currentColor"/>
+    </symbol>
+    <symbol id="icon-leaf" viewBox="0 0 24 24">
+      <path d="M20.2 4.3C12 3.8 5.2 7 4.4 14.2c-.3 2.7 1.4 4.7 4 5.1 7 1 10.4-5.7 11.8-15z" fill="currentColor" opacity=".92"/>
+      <path d="M5.3 19c2.8-5 6.3-8.4 11.1-11.1" fill="none" stroke="#fffdf3" stroke-width="1.6" stroke-linecap="round"/>
+    </symbol>
+  </svg>
+
+  <div class="scene" aria-hidden="true">
+    <div class="scene__sun"></div>
+    <div class="scene__stars"></div>
+    <div class="cloud cloud--one"></div>
+    <div class="cloud cloud--two"></div>
+    <div class="cloud cloud--three"></div>
+    <div class="scene__hill scene__hill--back"></div>
+    <div class="scene__hill scene__hill--mid"></div>
+    <div class="scene__hill scene__hill--front"></div>
+    <div class="scene__sheep scene__sheep--left">🐑</div>
+    <div class="scene__sheep scene__sheep--right">🐑</div>
+    <div class="scene__grass scene__grass--left">🌿</div>
+    <div class="scene__grass scene__grass--right">🌾</div>
+    <div class="scene__flower scene__flower--one"></div>
+    <div class="scene__flower scene__flower--two"></div>
+    <div class="scene__flower scene__flower--three"></div>
+  </div>
+
+  <div class="page">
+    <header class="topbar">
+      <div class="brand" aria-label="羊了个羊">
+        <span class="brand__mascot">
+          <svg viewBox="0 0 140 130" aria-hidden="true"><use href="#sheep-mascot"></use></svg>
+        </span>
+        <span class="brand__copy">
+          <span class="brand__title">羊了个羊</span>
+          <span class="brand__tagline">三张一样，烦恼清光</span>
+        </span>
+      </div>
+      <div class="topbar__actions">
+        <button id="soundBtn" class="round-btn" type="button" aria-label="关闭音效" aria-pressed="true" title="音效">
+          <svg class="sound-icon sound-icon--on" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sound-on"></use></svg>
+          <svg class="sound-icon sound-icon--off" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-sound-off"></use></svg>
+        </button>
+        <button id="pauseBtn" class="round-btn" type="button" aria-label="暂停游戏" title="暂停">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-pause"></use></svg>
+        </button>
+      </div>
+    </header>
+
+    <main class="game-layout">
+      <section class="game-card" id="gameCard" aria-label="羊了个羊游戏">
+        <div class="game-card__head">
+          <div class="level-mark">
+            <span class="level-mark__index">第 <b id="levelNumber">1</b> 关</span>
+            <strong class="level-mark__name" id="levelName">青草试炼</strong>
+          </div>
+          <div class="game-stats">
+            <div class="game-stat">
+              <span class="game-stat__label">剩余</span>
+              <strong class="game-stat__value" id="remainingCount">27</strong>
+            </div>
+            <span class="game-stat__divider" aria-hidden="true"></span>
+            <div class="game-stat">
+              <span class="game-stat__label">用时</span>
+              <strong class="game-stat__value game-stat__value--time" id="timerText">00:00</strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="board-wrap">
+          <span class="board-wrap__leaf board-wrap__leaf--tl" aria-hidden="true"></span>
+          <span class="board-wrap__leaf board-wrap__leaf--br" aria-hidden="true"></span>
+          <div class="board-stage">
+            <div id="board" class="board" role="group" aria-label="牌堆，点击完全没有被压住的牌"></div>
+          </div>
+        </div>
+
+        <div class="tools" role="group" aria-label="游戏道具">
+          <button class="tool" type="button" data-tool="undo" aria-label="撤回上一步">
+            <span class="tool__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-undo"></use></svg></span>
+            <span class="tool__copy"><strong>撤回</strong><small>上一步</small></span>
+            <span class="tool__badge" data-count="undo">1</span>
+          </button>
+          <button class="tool" type="button" data-tool="move" aria-label="移出三张牌到暂存区">
+            <span class="tool__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-move"></use></svg></span>
+            <span class="tool__copy"><strong>移出</strong><small>三张牌</small></span>
+            <span class="tool__badge" data-count="move">1</span>
+          </button>
+          <button class="tool" type="button" data-tool="shuffle" aria-label="打乱剩余牌面">
+            <span class="tool__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-shuffle"></use></svg></span>
+            <span class="tool__copy"><strong>洗牌</strong><small>换换手气</small></span>
+            <span class="tool__badge" data-count="shuffle">1</span>
+          </button>
+        </div>
+
+        <section class="tray-panel" id="trayPanel" aria-label="卡槽，最多放七张牌">
+          <div class="tray-panel__head">
+            <span class="tray-panel__title">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-leaf"></use></svg>
+              卡槽
+            </span>
+            <span class="tray-panel__hint">凑齐三张就消除</span>
+            <span class="tray-panel__count" id="slotCount"><b>0</b><i>/ 7</i></span>
+          </div>
+          <div id="tray" class="tray" role="group" aria-label="卡槽内没有牌"></div>
+        </section>
+
+        <section class="bench-wrap" id="benchWrap" aria-label="暂存区" hidden>
+          <div class="bench__label">
+            <span>暂存区</span>
+            <small>点击牌可放回卡槽</small>
+          </div>
+          <div id="bench" class="bench"></div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      <span>🌱 慢慢来，别让卡槽塞满啦</span>
+      <span class="page-footer__dot" aria-hidden="true"></span>
+      <span>第 <b id="footerLevel">1</b> / 3 关</span>
+    </footer>
+  </div>
+
+  <div id="overlay" class="overlay" hidden>
+    <div class="overlay__scrim"></div>
+    <div id="confettiLayer" class="confetti-layer" aria-hidden="true"></div>
+    <div id="modal" class="modal" role="dialog" aria-modal="true" aria-label="游戏面板"></div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="fxLayer" class="fx-layer" aria-hidden="true"></div>
+  <div id="srStatus" class="sr-only" aria-live="polite"></div>
+
+  <noscript>
+    <div class="noscript">请启用 JavaScript，才能帮小羊收拾牧场。</div>
+  </noscript>
+
+  <script src="game-core.js"></script>
+  <script src="game-ui.js"></script>
+</body>
+</html>
